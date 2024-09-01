@@ -121,6 +121,7 @@ input[type="text"]:focus {
   textarea {
     resize: vertical;
     height: 100px;
+    font-family: "Cabin";
   }
   
   .radio-group label {
