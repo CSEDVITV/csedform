@@ -1,6 +1,11 @@
 document.getElementById('departmentForm').addEventListener('submit', function(event) {
     event.preventDefault();
 
+    const submitBtn = document.getElementById('submitBtn');
+
+    // Disable the submit button to prevent multiple clicks
+    submitBtn.disabled = true;
+
     const department = document.querySelector('input[name="department"]:checked');
     const name = document.getElementById('name').value.trim();
     const regNo = document.getElementById('regNo').value.trim();
@@ -9,6 +14,7 @@ document.getElementById('departmentForm').addEventListener('submit', function(ev
 
     if (!department || !name || !regNo || !phone || !reason) {
         alert('Please fill out all fields.');
+        submitBtn.disabled = false; // Re-enable the button if validation fails
         return;
     }
 
@@ -24,7 +30,6 @@ document.getElementById('departmentForm').addEventListener('submit', function(ev
         method: 'POST',
         body: formData
     })
-    
     .then(response => response.json())
     .then(data => {
         if (data.result === 'success') {
@@ -42,14 +47,17 @@ document.getElementById('departmentForm').addEventListener('submit', function(ev
         } else {
             alert('There was an error submitting your response. Please try again.');
             console.error(data.error);
+            submitBtn.disabled = false; // Re-enable the button if submission fails
         }
     })
     .catch(error => {
         alert('An error occurred while submitting the form.');
         console.error('Error:', error);
+        submitBtn.disabled = false; // Re-enable the button if there's an error
     });
 });
 
 document.getElementById('clearBtn').addEventListener('click', function() {
     document.getElementById('departmentForm').reset();
+    document.getElementById('submitBtn').disabled = false; // Re-enable the submit button on form reset
 });
