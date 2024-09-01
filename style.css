@@ -56,7 +56,7 @@ body {
  
   
   .form-container {
-    background-color: #1a1a1a;
+    background-color: #1a1a1aa5;
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
@@ -88,7 +88,7 @@ body {
   textarea {
   width: 100%;
   padding: 10px;
-  background-color: #1c1c1c; /* Dark background */
+  background-color: #1a1a1aa5; /* Dark background */
   border: 1px solid #4c4c4c; /* White border */
   border-radius: 4px;
   font-size: 16px;
@@ -100,7 +100,7 @@ input[type="tel"],
 textarea {
   width: 100%;
   padding: 10px;
-  background-color: #1c1c1c; /* Dark background */
+  background-color: #1a1a1aa5; /* Dark background */
   border: 1px solid #4c4c4c; /* White border */
   border-radius: 4px;
   font-size: 16px;
@@ -113,6 +113,12 @@ input[type="text"]::placeholder {
 }
 
 input[type="text"]:focus {
+  outline: none;
+  border-color: #fffef4; 
+  background-color: #1a1a1a;
+}
+
+input[type="tel"]:focus {
   outline: none;
   border-color: #fffef4; 
   background-color: #1a1a1a;
